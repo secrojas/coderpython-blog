@@ -1,19 +1,13 @@
-from django.http import HttpResponse
-from django.template import loader
-
-# Create your views here.
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse('<h1>Bienvenidos a mi blog en Django</h1>')
+    return render(request,'index/index.html',{})
 
-def plantilla(request):
-
-    template = loader.get_template('plantilla.html')
+def plantilla(request):   
 
     datos = {
         'lista' : ['primero','segundo','tercero'],
-        'nombre' : 'Juan'
+        'nombre' : 'Juancho'
     }
-    plantilla_generada = template.render(datos)
 
-    return HttpResponse(plantilla_generada)
+    return render(request, 'index/plantilla.html', datos)
