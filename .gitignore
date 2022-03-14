@@ -1,4 +1,4 @@
 venv
 html-template
 __pycache
-db.sqllite3
+db.sqlite3
