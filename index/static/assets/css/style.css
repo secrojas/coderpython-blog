@@ -1247,7 +1247,7 @@ ul {
 }
 
 .header-area .logo img {
-  max-height: 50px;
+  max-height: 55px;
 }
 
 .header-area .logo-white {
@@ -4060,9 +4060,9 @@ input:checked + .slider:before {
   background-color: #1B1B1B;
 }
 
-.footer-area-content {
+/* .footer-area-content {
   padding: 100px 0px;
-}
+} */
 
 .footer-area-content .menu {
   text-align: center;

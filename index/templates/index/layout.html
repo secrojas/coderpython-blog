@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- favicon -->
+    <link rel="icon" sizes="16x16" href= {% static 'assets/img/favicon.ico' %}>
+
+    <!-- Title -->
+    <title> secrojas Blog </title>
+  
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" href={% static 'assets/css/bootstrap.min.css' %}>
+    <link rel="stylesheet" href={% static 'assets/css/owl.carousel.css' %}>
+    <link rel="stylesheet" href={% static 'assets/css/line-awesome.min.css' %}>
+    <link rel="stylesheet" href={% static 'assets/css/fontawesome.css' %}>
+
+    <!-- main style -->
+    <link rel="stylesheet" href={% static 'assets/css/style.css' %}>
+    <link rel="stylesheet" href={% static 'assets/css/custom.css' %}>
+</head>
+
+<body>
+    <!--loading -->
+    <div class="loader">
+        <div class="loader-element"></div>
+      </div>
+
+    <!-- Header-->
+    <header class="header navbar-expand-lg fixed-top ">
+        <div class="container-wrap ">
+            <div class="header-area header-padding">
+                <!--logo-->
+                <div class="logo">
+                    <a href={% url 'index' %}>
+                        <img src={% static 'assets/img/favicon.ico' %} alt="" class="logo-dark">
+                        <img src={% static 'assets/img/favicon.ico' %} alt="" class="logo-white">
+                    </a>
+                </div>
+                <!--/-->
+                <div class="header-navbar">
+                    <nav class="navbar">
+                        <!--navbar-collapse-->
+                        <div class="collapse navbar-collapse" id="main_nav">
+                            <ul class="navbar-nav ">                                
+                               
+                                {% comment %} <li class="nav-item">
+                                    <a class="nav-link" href={% url 'posts' %}> posts </a>
+                                </li> {% endcomment %}
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href={% url 'about-me' %}> about me </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href={% url 'contact' %}> contact </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/-->
+                    </nav>
+                </div>
+
+                <!--header-right-->
+                <div class="header-right ">
+                    <!--theme-switch-->
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox" title="change mode">
+                            <input type="checkbox" id="checkbox" />
+                            <span class="slider round ">
+                                <i class="lar la-sun icon-light"></i>
+                                <i class="lar la-moon icon-dark"></i>
+                            </span>
+                        </label>
+                    </div>
+                  
+                </div>
+            </div>
+        </div> 
+    </header>
+
+    {% block 'main_block' %}
+    {% endblock 'main_block' %}
+  
+    <div class="footer">
+        <div class="footer-area">
+            <div class="footer-area-content">
+                
+            </div>
+           
+            <div class="footer-area-copyright">
+                <div class="container">
+                    <div class="row">
+                       <div class="col-lg-12">
+                           <div class="copyright">
+                            <p>© 2022,  secrojas, All Rights Reserved.</p>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+
+    <!--Search-form-->
+    {% comment %} <div class="search">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-7 col-md-10 m-auto">
+                    <div class="se  arch-width">
+                        <button type="button" class="close">
+                            <i class="far fa-times"></i>
+                        </button>
+                        <form class="search-form" action="search.html">
+                            <input type="search" value="" placeholder="What are you looking for?">
+                            <button type="submit" class="search-btn"> search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src={% static 'assets/js/jquery.min.js' %}></script>
+    <script src={% static 'assets/js/popper.min.js' %}></script>
+    <script src={% static 'assets/js/bootstrap.min.js' %}></script>
+
+    <!-- JS Plugins  -->
+    <script  src={% static 'assets/js/theia-sticky-sidebar.js' %}></script>
+    <script src={% static 'assets/js/ajax-contact.js' %}></script>
+    <script src={% static 'assets/js/owl.carousel.min.js' %}></script>
+    <script src={% static 'assets/js/switch.js' %}></script>
+    <script src={% static 'assets/js/jquery.marquee.js' %}></script>
+    
+    <!-- JS main  -->
+    <script src={% static 'assets/js/main.js' %}></script>
+
+
+</body>
+
+</html>

@@ -1,13 +1,19 @@
 from django.shortcuts import render
 
 def index(request):
-    return render(request,'index/index.html',{})
+    return render(request,'index/home.html',{})
 
-def plantilla(request):   
+def about_me(request):   
 
     datos = {
         'lista' : ['primero','segundo','tercero'],
         'nombre' : 'Juancho'
     }
 
-    return render(request, 'index/plantilla.html', datos)
+    return render(request, 'index/about-me.html', datos)
+
+def posts(request):
+    return render(request,'index/posts.html',{})
+
+def contact(request):
+    return render(request,'index/contact.html',{})
