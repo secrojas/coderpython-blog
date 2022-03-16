@@ -130,6 +130,10 @@ ul {
   box-shadow: none;
 }
 
+.botton-sub{
+  margin-right:30px;
+}
+
 .container-fluid {
   max-width: 1140px;
 }
@@ -841,8 +845,8 @@ ul {
 
 /*login*/
 .login {
-  margin-top: 100px;
-  padding: 100px;
+ 
+  padding: 20px;
 }
 
 .login-content {
