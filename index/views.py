@@ -41,19 +41,21 @@ def new_category(request):
 
 def new_post(request):
 
+    categories = Category.objects.all()
+
     if request.method == 'POST':
         new_post = Post(
             title=request.POST['title'],
             short_description=request.POST['short_description'],
             slug=request.POST['title'],
             status=True,
-            # category=request.POST['category'],
+            category=Category.objects.get(id=request.POST['category'])
         )
         new_post.save()
 
         return redirect('index')
 
-    return render(request,'index/new-post.html',{})
+    return render(request,'index/new-post.html',{'categories':categories})
 
 def new_comment(request):
 
