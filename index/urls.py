@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import index, about_me, contact, new_category, new_post, new_comment, list_posts,content_admin,login
+from django.contrib.auth.views import LogoutView
+from .views import index, about_me, contact, new_category, new_post, new_comment, list_posts,content_admin,my_login,my_register
 
 urlpatterns = [
     path('', index, name='index'),
@@ -10,7 +11,9 @@ urlpatterns = [
     path('new-comment/', new_comment, name='new-comment'),
     path('posts/', list_posts, name='list-posts'),
 
-    path('login/', login, name='login'),
+    path('login/', my_login, name='login'),
+    path('logout/', LogoutView.as_view(template_name='index/home.html'), name='logout'),
+    path('register/', my_register, name='register'),
     
     # admin routes
     path('content-admin/', content_admin, name='content-admin')

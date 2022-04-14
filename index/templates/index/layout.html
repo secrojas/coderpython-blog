@@ -60,31 +60,41 @@
                                 
                                 <li class="nav-item">
                                     <a class="nav-link" href={% url 'list-posts' %}> search posts </a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle " href={% url 'index' %} data-toggle="dropdown"> Create data </a>
-                                    <ul class="dropdown-menu fade-up">
-                                        <li>
-                                            <a class="dropdown-item " href={% url 'new-category' %}>Categories</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" href={% url 'new-post' %}>Posts </a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item " href={% url 'new-comment' %}>Comments </a>
-                                        </li>                                        
-                                    </ul>
-                                </li>
+                                </li>                              
                                 <li class="nav-item">
                                     <a class="nav-link" href={% url 'contact' %}> contact </a>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href={% url 'login' %}> login </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href={% url 'content-admin' %}> dashboard </a>
-                                </li>
+                                {% if request.user.is_authenticated %}
+                                    {% comment %} <a class="navbar-brand" href={% url 'usuario_datos' %}>
+                                        <img src="{{request.user.userextension.avatar.url}}" alt="" height='30px'>
+                                        {{request.user.username}}
+                                    </a> {% endcomment %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href={% url 'content-admin' %}> dashboard </a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href={% url 'index' %} data-toggle="dropdown"> Create data </a>
+                                        <ul class="dropdown-menu fade-up">
+                                            <li>
+                                                <a class="dropdown-item " href={% url 'new-category' %}>Categories</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href={% url 'new-post' %}>Posts </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item " href={% url 'new-comment' %}>Comments </a>
+                                            </li>                                        
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href={% url 'logout' %}> logout </a>
+                                    </li>
+                                {% else %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href={% url 'login' %}> login </a>
+                                    </li>                                    
+                                {% endif %}
                             </ul>
                         </div>
                         <!--/-->
