@@ -6,6 +6,9 @@ from comments.models import Comment
 
 from .forms import SearchPost
 
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate
+
 def index(request):
     return render(request,'index/home.html',{})
 
@@ -81,4 +84,14 @@ def list_posts(request):
     form = SearchPost()
 
     return render(request, 'index/posts.html',{'form':form, 'posts':posts})
+
+#admin views
+
+def login(request):
+
+    login_form = AuthenticationForm()
+    return render(request,'admin/login-page.html',{'login_form':login_form})
+
+def content_admin(request):
+    return render(request,'admin/dashboard.html',{})
     

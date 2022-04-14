@@ -21,6 +21,7 @@ _Blog informativo que cuenta con diferentes funcionalidades para gestionar. Inic
 ### Project setup
 
 * `Clone the repo`
+* `sudo apt install python3.9-venv`
 * `python3 -m venv venv`
 * `. venv/bin/activate`
 * `python -m pip install -r requirements.txt`

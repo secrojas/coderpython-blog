@@ -1,0 +1,65 @@
+{% extends 'admin/layout.html' %}
+
+{% block 'main_block' %}    
+
+{% load static %}
+
+    <div class="content-wrapper">
+                
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Dashboard</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <!-- <li class="breadcrumb-item active">Starter Page</li> -->
+                    </ol>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6" style="margin-top:80px">
+                    <div class="card card-widget widget-user-2 shadow-sm">                
+                    <div class="widget-user-header bg-warning">
+                        <div class="widget-user-image">
+                        <!-- <img class="img-circle elevation-2" src="../dist/img/user7-128x128.jpg" alt="User Avatar"> -->
+                        </div> 
+                        <h5 class="widget-user-desc">Main content details</h5>
+                    </div>
+                    <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            Categories <span class="float-right badge bg-danger">5</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            Posts <span class="float-right badge bg-warning">6</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            Comments <span class="float-right badge bg-primary">10</span>
+                            </a>
+                        </li>                      
+                        </ul>
+                    </div>
+                    </div>
+                </div>         
+                <div class="col-lg-3"></div>        
+                </div>     
+            </div>
+        </div>
+
+    </div>
+
+{% endblock 'main_block' %}
