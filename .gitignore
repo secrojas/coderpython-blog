@@ -1,4 +1,5 @@
 venv
-html-template
-__pycache
+__pycache__
 db.sqlite3
+.env
+avatar/
