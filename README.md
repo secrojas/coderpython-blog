@@ -39,6 +39,8 @@ _Blog informativo que cuenta con diferentes funcionalidades para gestionar. Inic
 * `python3 manage.py createsuperuser`
 * Enter /admin directory in the web app
 
+## VIDEO DEMO
+[![DEMO](https://srojasweb.dev/2022/coderhouse/django/login.png)](https://srojasweb.dev/2022/coderhouse/django/videos/demo-init.mp4)
 
 ## some previews
 
