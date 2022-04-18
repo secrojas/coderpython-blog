@@ -47,9 +47,6 @@ _Blog informativo que cuenta con diferentes funcionalidades para gestionar. Inic
 ### home:
 ![BANNER](https://srojasweb.dev/2022/coderhouse/django/preview-blog-django.jpg)
 
-### login:
-![ADMIN-PROFILE](https://srojasweb.dev/2022/coderhouse/django/login.png)
-
 ### dashboard:
 ![ADMIN-DASHBOARD](https://srojasweb.dev/2022/coderhouse/django/dashboard.png)
 ### user profile:
