@@ -7,6 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import MyUserForm, EditFullUser
 from .models import MyUser
 
+from categories.models import Category
+from posts.models import Post
 
 #admin views
 
@@ -104,3 +106,14 @@ def content_admin(request):
 def profile(request):
     more_data, _ = MyUser.objects.get_or_create(user=request.user)
     return render(request,'accounts/profile.html',{'more_data':more_data})
+
+@login_required
+def admin_categories(request):
+    categories = Category.objects.all()
+    return render(request,'accounts/categories.html',{'categories':categories})
+
+@login_required
+def admin_posts(request):
+    categories = Category.objects.all()
+    posts = Post.objects.all()
+    return render(request,'accounts/posts.html',{'categories':categories,'posts':posts})

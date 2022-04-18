@@ -31,7 +31,7 @@ def new_category(request):
         new_category = Category(
             title=request.POST['title'],
             slug=request.POST['title'],
-            description=request.POST['title'],
+            description=request.POST['description'],
             status=True
         )
         new_category.save()
@@ -85,5 +85,3 @@ def list_posts(request):
 
     return render(request, 'index/posts.html',{'form':form, 'posts':posts})
 
-
-    
