@@ -1,0 +1,140 @@
+{% extends 'accounts/layout.html' %}
+
+{% block 'main_block' %}    
+
+{% load static %}
+
+    <div class="content-wrapper">
+                
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Profile</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href={% url 'index' %}>Go to the Blog</a></li>
+                    <!-- <li class="breadcrumb-item active">Starter Page</li> -->
+                    </ol>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2"></div>  
+                    <div class="col-lg-2">
+                        <div class="card card-primary card-outline">
+                            <div class="card-body box-profile">
+                                <div class="text-center">
+                                    <img class="profile-user-img img-fluid img-circle"
+                                        src={% static 'assets-admin/dist/img/profile.jpg' %}
+                                        alt="User profile picture">
+                                </div>              
+                                <h3 class="profile-username text-center">{{request.user.first_name}} {{request.user.last_name}}</h3>              
+                                <p class="text-muted text-center">{{more_data.more_description}}</p>
+                            </div>                          
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" >
+                        <div class="card card-success card-outline">
+                            <div class="card-body">
+                                <div class="tab-content">    
+                                    <form class="form-horizontal" action={% url 'profile' %} method="post" enctype='multipart/form-data'>
+                                        {% csrf_token %}                                        
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="password1" class="col-sm-2 col-form-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="password1" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label" for="password2">Re-entry Password</label>
+                                            <div class="col-sm-10">
+                                                <input type="password" class="form-control" id="password2" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="first_name" placeholder="{{request.user.first_name}}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="last_name" placeholder="{{request.user.last_name}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">   
+                                            <label for="avatar" class="col-sm-2 col-form-label">Picture</label>                                                               
+                                            <div class="custom-file" class="col-sm-10">
+                                                <div>
+                                                    <input type="file" class="custom-file-input" id="avatar">
+                                                    <label class="custom-file-label" for="avatar">Choose file</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="more_description" class="col-sm-2 col-form-label">Description</label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" id="more_description" placeholder="{{more_data.more_description}}"></textarea>
+                                            </div>
+                                        </div>  
+                                        <div class="form-group row">
+                                            <label for="link" class="col-sm-2 col-form-label">link</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="link" placeholder="{{more_data.link}}">
+                                            </div>
+                                        </div> 
+                                        
+                                        {% comment %} <div class="form-group">
+                                            <label for="exampleInputFile">Picture</label>
+                                            <div class="input-group">
+                                              <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="avatar">
+                                                <label class="custom-file-label" for="avatar">Captura de pantalla de 2022-04-04 15-13-22.png</label>
+                                              </div>
+                                              <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                              </div>
+                                            </div>
+                                          </div> {% endcomment %}
+                                        
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-warning">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </form>                                
+                                </div>
+                            </div> 
+                            
+                            <p>
+                                {% if msj %}
+                                    {{msj}}
+                                {% endif %}
+                            </p>
+
+                        </div>                      
+                    </div>                         
+                          
+                </div>     
+            </div>
+        </div>
+
+    </div>
+
+{% endblock 'main_block' %}

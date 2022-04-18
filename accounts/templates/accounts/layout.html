@@ -43,7 +43,7 @@
                         <img src={% static 'assets-admin/dist/img/profile.jpg' %} class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                        <a href="#" class="d-block">Sebastian Rojas</a>
+                        <a href={% url 'profile' %} class="d-block">{{request.user.username}}</a>
                         </div>
                     </div>  
                     
@@ -84,7 +84,7 @@
 
             <footer class="main-footer">   
                 <div class="float-right d-none d-sm-inline">
-                v. 1.1.0
+                v. 1.1.3
                 </div>    
                 <strong>Copyright &copy; 2022 <a href="https://srojasweb.dev">srojas</a>.</strong> All rights reserved.
             </footer>
@@ -92,7 +92,9 @@
     
         <script src= {% static 'assets-admin/dist/plugins/jquery/jquery.min.js' %}></script>
         <script src= {% static 'assets-admin/dist/plugins/bootstrap/js/bootstrap.bundle.min.js' %}></script>
+        <script src= {% static 'assets-admin/dist/plugins/bs-custom-file-input/bs-custom-file-input.min.js' %}></script>
         <script src= {% static 'assets-admin/dist/js/adminlte.min.js' %} ></script>
+        
     
       </body>
 </html>
