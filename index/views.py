@@ -5,6 +5,10 @@ from comments.models import Comment
 from .forms import SearchPost
 from django.contrib.auth.decorators import login_required
 
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView, DeleteView
+
 
 def index(request):
     return render(request,'index/home.html',{})
@@ -85,3 +89,31 @@ def list_posts(request):
 
     return render(request, 'index/posts.html',{'form':form, 'posts':posts})
 
+@login_required
+def category_create(request):
+
+    if request.method == 'POST':
+        new_category = Category(
+            title=request.POST['title'],
+            slug=request.POST['title'],
+            description=request.POST['description'],
+            status=True
+        )
+        new_category.save()
+
+        return redirect('admin-categories')
+
+    return render(request,'accounts/categories-create.html',{})
+
+class categoriesDetail(DetailView):
+    model = Category
+    template_name = "accounts/categories-detail.html"
+class categoriesEdit(UpdateView):
+    model = Category
+    template_name = "accounts/categories-edit.html"
+    success_url = '/admin/categories'
+    fields = ['title', 'description', 'status']  
+class categoriesDelete(DeleteView):
+    model = Category
+    template_name = "accounts/categories-delete.html"
+    success_url = '/admin/categories'

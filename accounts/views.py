@@ -117,3 +117,4 @@ def admin_posts(request):
     categories = Category.objects.all()
     posts = Post.objects.all()
     return render(request,'accounts/posts.html',{'categories':categories,'posts':posts})
+

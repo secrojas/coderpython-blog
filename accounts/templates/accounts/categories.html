@@ -25,11 +25,12 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-2"></div>  
+                    <div class="col-lg-3"></div>  
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header">
                               <h3 class="card-title">List of Categories </h3>
+                              <a href="{% url 'category-create' %}" type="button" class="float-right btn btn-primary right">New Category</a>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -39,7 +40,8 @@
                                     <th style="width: 10px">#</th>
                                     <th>Name</th>
                                     <th>Description</th> 
-                                    <th>Active</th>                                    
+                                    <th>Active</th> 
+                                    <th style="text-align:center">Actions</th>                                    
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -48,7 +50,20 @@
                                             <td>{{cat.id}}.</td>
                                             <td>{{cat.title}}</td>
                                             <td>{{cat.description}}</td>  
-                                            <td>{{cat.status}}</td>                                    
+                                            <td>
+                                                <span class="badge badge-success">{{cat.status}}</span>
+                                            </td> 
+                                            <td align="center">
+                                                <a href={% url 'categories-detail' cat.id %} class="btn btn-primary" title="details">
+                                                    <i class="fa fa-info-circle"></i>
+                                                </a>
+                                                <a href="{% url 'categories-edit' cat.id %}" class="btn btn-warning" title="edit">
+                                                    <i class="fa fa-pencil-square-o"></i>
+                                                </a>
+                                                <a  href="{% url 'categories-delete' cat.id %}" class="btn btn-danger" title="delete">
+                                                    <i class="fa fa-trash"></i>                                                    
+                                                </a>
+                                            </td>                                    
                                           </tr>    
                                     {% endfor %}                                    
                                 </tbody>
