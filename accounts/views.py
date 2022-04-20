@@ -110,11 +110,11 @@ def profile(request):
 @login_required
 def admin_categories(request):
     categories = Category.objects.all()
-    return render(request,'accounts/categories.html',{'categories':categories})
+    return render(request,'accounts/categories/categories.html',{'categories':categories})
 
 @login_required
 def admin_posts(request):
     categories = Category.objects.all()
     posts = Post.objects.all()
-    return render(request,'accounts/posts.html',{'categories':categories,'posts':posts})
+    return render(request,'accounts/posts/posts.html',{'categories':categories,'posts':posts})
 

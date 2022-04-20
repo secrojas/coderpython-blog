@@ -1,0 +1,54 @@
+{% extends 'accounts/layout.html' %}
+
+{% block 'main_block' %}    
+
+{% load static %}
+
+    <div class="content-wrapper">
+                
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Delete post</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href={% url 'index' %}>Go to the Blog</a></li>
+                    <!-- <li class="breadcrumb-item active">Starter Page</li> -->
+                    </ol>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3"></div>  
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                              <h3 class="card-title">Delete post <b>{{object.title}}</b> </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    Confirm delete of {{object}} post??
+                                    <br><br>
+                                    <button class="btn btn-success">Yes, confirm.</button>
+                                </form>
+                            </div>
+                            <div class="card-footer">
+                                <a href="{% url 'admin-posts' %}" type="button" class="btn btn-danger">Go Back</a>
+                            </div>
+                        </div>
+                    </div>       
+                </div>     
+            </div>
+        </div>
+
+    </div>
+
+{% endblock 'main_block' %}

@@ -103,17 +103,49 @@ def category_create(request):
 
         return redirect('admin-categories')
 
-    return render(request,'accounts/categories-create.html',{})
+    return render(request,'accounts/categories/categories-create.html',{})
 
 class categoriesDetail(DetailView):
     model = Category
-    template_name = "accounts/categories-detail.html"
+    template_name = "accounts/categories/categories-detail.html"
 class categoriesEdit(UpdateView):
     model = Category
-    template_name = "accounts/categories-edit.html"
+    template_name = "accounts/categories/categories-edit.html"
     success_url = '/admin/categories'
     fields = ['title', 'description', 'status']  
 class categoriesDelete(DeleteView):
     model = Category
-    template_name = "accounts/categories-delete.html"
+    template_name = "accounts/categories/categories-delete.html"
     success_url = '/admin/categories'
+
+@login_required
+def post_create(request):
+
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        new_post = Post(
+            title=request.POST['title'],
+            short_description=request.POST['short_description'],
+            slug=request.POST['title'],
+            status=True,
+            category=Category.objects.get(id=request.POST['category'])
+        )
+        new_post.save()
+
+        return redirect('admin-posts')
+
+    return render(request,'accounts/posts/posts-create.html',{'categories':categories})
+
+class postsDetail(DetailView):
+    model = Post
+    template_name = "accounts/posts/posts-detail.html"
+class postsEdit(UpdateView):
+    model = Post
+    template_name = "accounts/posts/posts-edit.html"
+    success_url = '/admin/posts'
+    fields = ['title', 'short_description', 'status']  
+class postsDelete(DeleteView):
+    model = Post
+    template_name = "accounts/posts/posts-delete.html"
+    success_url = '/admin/posts'
