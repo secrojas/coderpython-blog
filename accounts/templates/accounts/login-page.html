@@ -19,9 +19,7 @@
   
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
-
-      {% comment %} <form action="#" method="post"> {% endcomment %}
+      <p class="login-box-msg">Sign in to start your session</p>      
 
       <p>
         {% if msj %}
@@ -62,11 +60,7 @@
           </div>
           
         </div>
-      </form>     
-
-      {% comment %} <p class="mb-1">
-        <a href="#">I forgot my password</a>
-      </p> {% endcomment %}
+      </form>   
       <p class="mb-0">
         <a href={% url 'register' %} class="text-center">Register a new user</a>        
       </p>
@@ -77,6 +71,5 @@
 
 <script src={% static 'assets-admin/dist/plugins/jquery/jquery.min.js' %}></script>
 <script src={% static 'assets-admin/dist/plugins/bootstrap/js/bootstrap.bundle.min.js' %}></script>
-<!-- <script src={% static 'assets-admin/dist/dist/js/adminlte.min.js' %}></script> -->
 </body>
 </html>
