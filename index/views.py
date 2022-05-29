@@ -10,8 +10,9 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import UpdateView, DeleteView
 
 
-def index(request):
-    return render(request,'index/home.html',{})
+def index(request):    
+    posts = Post.objects.all()    
+    return render(request,'index/home.html',{'posts':posts})
 
 def about_me(request):   
 

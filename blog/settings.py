@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'categories',
     'posts',
     'comments',
-    'accounts'
+    'accounts',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

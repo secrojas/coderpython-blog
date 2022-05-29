@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import SET_NULL
 from categories.models import Category
+from ckeditor.fields import RichTextField
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -10,6 +11,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='posts/images/')
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=SET_NULL,null=True)
+    description = RichTextField(null=True)
 
 #for items option in the posts
     def __str__(self):

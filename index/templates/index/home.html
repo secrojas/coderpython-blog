@@ -22,89 +22,35 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12"> 
-                <!--post 1-->
-                <div class="post-list post-list-style2">
-                    <div class="post-list-image">
-                        <a href="">
-                            <img src={% static 'assets/img/blog/30.jpg' %} alt="">
-                        </a>
-                    </div>
-                    <div class="post-list-content">
-                        <h3 class="entry-title">
-                            <a href="">Business has only two functions — marketing and innovation.</a>
-                        </h3>  
-                        <ul class="entry-meta">
-                            <li class="post-author-img"><img src={% static 'assets/img/author/1.jpg' %} alt=""></li>
-                            <li class="post-author"> <a href="">Meriam Smith</a></li>
-                            <li class="entry-cat"> <a href="" class="category-style-1 "> <span class="line"></span> interior</a></li>
-                            <li class="post-date"> <span class="line"></span> february 10 ,2022</li>
-                        </ul>
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Ut est minus iste in accusantium repellat repudiandae nulla blanditiis iusto dolores!</p>
+                {% if posts %}
+                    {% for post in posts%}                    
+                        <div class="post-list post-list-style2">
+                            <div class="post-list-image" style="width:60%">
+                                <a href="">
+                                    <img src="media/{{post.image}}" alt="">
+                                </a>
+                            </div>
+                            <div class="post-list-content">
+                                <h3 class="entry-title">
+                                    <a href="">{{post.title}}</a>
+                                </h3>  
+                            
+                                <div class="post-exerpt">
+                                    <p>{{post.short_description}}</p>
+                                </div>
+                                <div class="post-btn">
+                                    <a href="" class="btn-read-more">Ver detalle del post <i class="las la-long-arrow-alt-right"></i></a>
+                                </div>
+                            </div>                                
+                        
                         </div>
-                        <div class="post-btn">
-                            <a href="" class="btn-read-more">Continue Reading <i class="las la-long-arrow-alt-right"></i></a>
-                        </div>
+                    {% endfor %} 
+                {% else %}
+                    <div class="post-list post-list-style2">
+                        <p>No hay posts cargados aún.</p>
                     </div>
-                </div>
+                {% endif %}
                 
-
-                <!--post 2-->
-                <div class="post-list post-list-style2">
-                    <div class="post-list-image">
-                        <a href="">
-                            <img src={% static 'assets/img/blog/35.jpg' %} alt="">
-                        </a>
-                    </div>
-                    <div class="post-list-content">
-                        <h3 class="entry-title">
-                            <a href="">It’s easier to ask Forgiveness than it is to get Permission. </a>
-                        </h3>  
-                        <ul class="entry-meta">
-                            <li class="post-author-img"><img src={% static 'assets/img/author/2.jpg' %} alt=""></li>
-                            <li class="post-author"> <a href="">Meriam Smith</a></li>
-                            <li class="entry-cat"> <a href="" class="category-style-1 "> <span class="line"></span> interior</a></li>
-                            <li class="post-date"> <span class="line"></span> february 10 ,2022</li>
-                        </ul>
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Ut est minus iste in accusantium repellat repudiandae nulla blanditiis iusto dolores!</p>
-                        </div>
-                        <div class="post-btn">
-                            <a href="" class="btn-read-more">Continue Reading <i class="las la-long-arrow-alt-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-              
-            
-                <!--post 3-->
-                <div class="post-list post-list-style2">
-                    <div class="post-list-image">
-                        <a href="">
-                            <img src={% static 'assets/img/blog/27.jpg' %} alt="">
-                        </a>
-                    </div>
-                    <div class="post-list-content">
-                        <h3 class="entry-title">
-                            <a href="">Build something 100 people love, not something 1 million people kind of like. </a>
-                        </h3>  
-                        <ul class="entry-meta">
-                            <li class="post-author-img"><img src={% static 'assets/img/author/3.jpg' %} alt=""></li>
-                            <li class="post-author"> <a href="">Meriam Smith</a></li>
-                            <li class="entry-cat"> <a href="" class="category-style-1 "> <span class="line"></span> interior</a></li>
-                            <li class="post-date"> <span class="line"></span> february 10 ,2022</li>
-                        </ul>
-                        <div class="post-exerpt">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                Ut est minus iste in accusantium repellat repudiandae nulla blanditiis iusto dolores!</p>
-                        </div>
-                        <div class="post-btn">
-                            <a href="" class="btn-read-more">Continue Reading <i class="las la-long-arrow-alt-right"></i></a>
-                        </div>
-                    </div>
-                </div>            
-               
             </div>
         </div>
     </div>
